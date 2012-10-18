@@ -1,0 +1,88 @@
+Conceitos de Programação Funcional:
+
+-Scala, Clojure e JavaScript
+
+-Imutabilidade
+
+-Funções como first-class values.
+
+-Recursões de Tail-call
+
+-Higher Order Functions
+
+-Currying
+
+
+
+
+
+
+Vamos trabalhar com Scala e Clojure nos exemplos de abordagem funcional, por N motivos:
+
+-Ambas funcionam na JVM e tem integração transparente com Java
+-Clojure é baseada em Lisp, uma das primeiras linguagens funcionais
+-Suportam todas as características principais que serão abordadas
+
+
+Também vou usar JavaScript, por ser uma linguagem que suporta algumas construções funcionais e muito usada na prática.
+
+
+Primeiro. O que é uma LINGUAGEM FUNCIONAL?
+
+"Functional programming itself has a definition problem: depending on whom you ask, you can get two different definitions on functional programming. One definition is what I would call pure functional programming, and the other is better summarized as 'having functions'"
+-http://www.nicollet.net/2011/10/functional-programming/
+
+Então temos duas definições: Uma, chamada "Puramente Funcional", e outra, classificada como "Tendo Funções".
+
+Mas C tem funções. C é funcional?
+NÃO
+
+"Ter" funções se refere a usar funções como valores, tanto quanto um inteiro ou uma String. Funções podem ser atribuídas a símbolos(como variaveis, ponteiros, etc), podem ser passadas como parâmetros e podem ser retornadas de outras funções.
+Nesse sentido, JavaScript pode ser considerada funcional, pois a seguinte construção é totalmente válida:
+
+
+var minha_funcao = function(){ alert("func") };
+minha_funcao();
+
+
+"Mas e os ponteiros de função do C?"
+Isso pode parecer funcional, mas os ponteiros de função são ponteiros "capengas", e são tratados pela linguagem de forma diferente dos ponteiros comuns. Além do mais, não se pode definir funções anônimas em C, o que é uma característica intrínseca de linguagens funcionais.
+
+
+Agora, um pouco sobre as linguagens que serão exemplificadas:
+
+Scala:
+	"Scala is a general purpose programming language designed to express common programming patterns in a concise, elegant, and type-safe way. It smoothly integrates features of object-oriented and functional languages, enabling Java and other programmers to be more productive"
+	-http://www.scala-lang.org/
+
+	Scala é uma linguagem estaticamente tipada, de tipagem forte, projetada para a JVM. Além do suporte excelente a OO, Scala implementa funções como valores de primeira classe e várias construções funcionais a nível de linguagem, tornando-a funcional na segunda definição.
+
+	def soma(x:Int, y:Int) = x + y
+	"função em Scala"
+
+
+Clojure:
+	"Clojure is a dialect of Lisp, and shares with Lisp the code-as-data philosophy and a powerful macro system. Clojure is predominantly a functional programming language, and features a rich set of immutable, persistent data structures."
+	-http://clojure.org/
+
+	Clojure, assim como sua mãe, Lisp, é uma linguagem puramente funcional, também projetada para a JVM, e é funcional na primeira definição. Puramente funcional. Toda a computação é feita compondo funções. É o único dialeto de Lisp na JVM que alcançou sucesso.
+
+	(defn soma [x y] (+ x y) )
+	"função em Clojure"
+
+
+JavaScript:
+	"JavaScript (sometimes abbreviated JS) is a prototype-based scripting language that is dynamic, weakly typed and has first-class functions. It is a multi-paradigm language, supporting object-oriented,[5] imperative, and functional[1][6] programming styles."
+	-http://en.wikipedia.org/wiki/JavaScript
+
+	JavaScript é uma linguagem de script conhecida principalmente pelo seu uso abrangente em Browsers. É uma linguagem de propósito geral, mas suporta programação funcional graças a seu suporte de primeira classe às funções.
+
+	function soma(x, y){ return x + y; }
+	"função em JavaScript"
+
+
+
+IMUTABILIDADE
+
+	Funções, matematicamente falando, lidam com VALORES. Valores como 2, 50 ou "blabla". E como sabemos, 2 é sempre 2. 50 é sempre 50. Valores não mudam. Claro que programando funcionalmente, não lidamos sempre com funções matemáticas, mas o conceito é basicamente o mesmo.
+	A imutabilidade é importante principalmente por causa de um conceito fundamental da programação funcional: Tudo deve retornar algum valor. Todas as operações precisam ter um valor de retorno válido. Se cada linha do código é responsável por retornar algum valor, modificar o estado de variáveis 
